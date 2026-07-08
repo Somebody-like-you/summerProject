@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YCV1</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo { font-size: 20px; font-weight: bold; }
+
+  .search-wrap input {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    width: 260px;
+  }
+
+  .right-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .right-group a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .right-group a:hover { text-decoration: underline; }
+  .right-group a.active {
+    font-weight: bold;
+    color: #111;
+  }
+  .signup-btn {
+    background: #111;
+    color: #fff !important;
+    padding: 6px 12px;
+  }
+
+  main { padding: 24px 30px; }
+
+  .page-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .page-title { font-size: 20px; font-weight: bold; }
+
+  .create-group-btn {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 9px 16px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .create-group-btn:hover { background: #333; }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    margin: 26px 0 12px;
+  }
+
+  .schedule-row {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .schedule-card {
+    flex: 0 0 auto;
+    width: 220px;
+    border: 1px solid #eee;
+    padding: 12px 14px;
+  }
+  .schedule-when {
+    font-size: 11px;
+    font-weight: bold;
+    color: #e02020;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .schedule-title { font-size: 13px; font-weight: bold; margin-top: 5px; }
+  .schedule-sub { font-size: 11px; color: #888; margin-top: 3px; }
+
+  .group-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .group-card {
+    border: 1px solid #e2e2e2;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    padding: 14px 16px;
+  }
+  .group-card:hover {
+    border-color: #bbb;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .group-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .group-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #666;
+    flex-shrink: 0;
+  }
+
+  .group-name-wrap { flex: 1; min-width: 0; }
+  .group-name { font-size: 14px; font-weight: bold; }
+  .group-status { font-size: 11px; color: #999; margin-top: 2px; }
+  .group-status.online { color: #1a9c1a; }
+
+  .online-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #1a9c1a;
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  .group-last-watched {
+    font-size: 12px;
+    color: #333;
+    margin-top: 12px;
+  }
+  .group-last-watched span { color: #999; }
+
+  .progress-track {
+    background: #eee;
+    height: 4px;
+    width: 100%;
+    margin-top: 6px;
+  }
+  .progress-fill {
+    background: #111;
+    height: 100%;
+  }
+
+  .group-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #888;
+    margin-top: 10px;
+  }
+
+  .invite-link {
+    font-size: 11px;
+    color: #555;
+    text-decoration: underline;
+  }
+
+  .join-card {
+    border: 1px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 20px;
+    cursor: pointer;
+    color: #888;
+  }
+  .join-card:hover { border-color: #999; color: #555; }
+  .join-plus { font-size: 22px; font-weight: bold; }
+  .join-text { font-size: 12px; }
+
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">YCV1</div>
+    <div class="search-wrap">
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="right-group">
+      <a href="index.html">Home</a>
+      <a href="#">Trending</a>
+      <a href="#" class="active">Watch With Friends</a>
+      <a href="#">Subscription</a>
+      <a href="#">Login</a>
+      <a href="#" class="signup-btn">Signup</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-title-row">
+      <div>
+        <div class="page-title">Your groups</div>
+      </div>
+      <button class="create-group-btn">+ Create a group</button>
+    </div>
+
+    <div class="section-label">Upcoming sessions</div>
+    <div class="schedule-row">
+      <div class="schedule-card">
+        <p class="schedule-when">Tonight ; 8:00 PM</p>
+        <p class="schedule-title">Movie Night</p>
+        <p class="schedule-sub">Family Movie Night ; 4 invited</p>
+      </div>
+      <div class="schedule-card">
+        <p class="schedule-when">Sat ; 6:30 PM</p>
+        <p class="schedule-title">New episode drop</p>
+        <p class="schedule-sub">Weekend Hangout ; 3 invited</p>
+      </div>
+      <div class="schedule-card">
+        <p class="schedule-when">Sun ; 11:00 AM</p>
+        <p class="schedule-title">Practice jam session</p>
+        <p class="schedule-sub">Guitar Learners ; 2 invited</p>
+      </div>
+    </div>
+
+    <div class="section-label">Your groups</div>
+    <div class="group-grid">
+
+      <div class="group-card">
+        <div class="group-card-top">
+          <div class="group-avatar">WH</div>
+          <div class="group-name-wrap">
+            <p class="group-name">Weekend Hangout</p>
+            <p class="group-status online"><span class="online-dot"></span>3 online now</p>
+          </div>
+        </div>
+        <p class="group-last-watched">Continue watching: <span>Building a robot car from scratch</span></p>
+        <div class="progress-track"><div class="progress-fill" style="width: 45%;"></div></div>
+        <div class="group-meta-row">
+          <span>6 members</span>
+          <span class="invite-link">Invite</span>
+        </div>
+      </div>
+
+      <div class="group-card">
+        <div class="group-card-top">
+          <div class="group-avatar">DS</div>
+          <div class="group-name-wrap">
+            <p class="group-name">Dev Squad</p>
+            <p class="group-status online"><span class="online-dot"></span>2 online now</p>
+          </div>
+        </div>
+        <p class="group-last-watched">Continue watching: <span>Live coding a full stack app</span></p>
+        <div class="progress-track"><div class="progress-fill" style="width: 70%;"></div></div>
+        <div class="group-meta-row">
+          <span>3 members</span>
+          <span class="invite-link">Invite</span>
+        </div>
+      </div>
+
+      <div class="group-card">
+        <div class="group-card-top">
+          <div class="group-avatar">FM</div>
+          <div class="group-name-wrap">
+            <p class="group-name">Family Movie Night</p>
+            <p class="group-status">Offline</p>
+          </div>
+        </div>
+        <p class="group-last-watched">Last watched: <span>Movie night highlights</span></p>
+        <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+        <div class="group-meta-row">
+          <span>5 members</span>
+          <span class="invite-link">Invite</span>
+        </div>
+      </div>
+
+      <div class="group-card">
+        <div class="group-card-top">
+          <div class="group-avatar">GT</div>
+          <div class="group-name-wrap">
+            <p class="group-name">Guitar Learners</p>
+            <p class="group-status">Offline</p>
+          </div>
+        </div>
+        <p class="group-last-watched">Last watched: <span>Learning guitar in 30 days</span></p>
+        <div class="progress-track"><div class="progress-fill" style="width: 20%;"></div></div>
+        <div class="group-meta-row">
+          <span>2 members</span>
+          <span class="invite-link">Invite</span>
+        </div>
+      </div>
+
+      <div class="join-card">
+        <div class="join-plus">+</div>
+        <p class="join-text">Join or create a new group</p>
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

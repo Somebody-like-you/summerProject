@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YCV1</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo { font-size: 20px; font-weight: bold; }
+
+  .search-wrap input {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    width: 260px;
+  }
+
+  .right-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .right-group a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .right-group a:hover { text-decoration: underline; }
+  .signup-btn {
+    background: #111;
+    color: #fff !important;
+    padding: 6px 12px;
+  }
+
+  main { padding: 24px 30px; }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .video-card { cursor: pointer; }
+  .thumbnail {
+    background: #ececec;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+  .video-title {
+    font-size: 13px;
+    margin-top: 6px;
+    color: #111;
+  }
+  .video-meta {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+  }
+
+
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">YCV1</div>
+    <div class="search-wrap">
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="right-group">
+      <a href="#">Home</a>
+      <a href="#">Trending</a>
+      <a href="/watchWithFriends.html">Watch With Friends</a>
+      <a href="#">Subscription</a>
+      <a href="#">Login</a>
+      <a href="#" class="signup-btn">Signup</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Building a robot car from scratch</p>
+        <p class="video-meta">TechBuilds &middot; 120K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Live coding a full stack app</p>
+        <p class="video-meta">DevDaily &middot; 89K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Cooking the perfect ramen</p>
+        <p class="video-meta">KitchenTales &middot; 54K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Movie night highlights</p>
+        <p class="video-meta">YCV1 Originals &middot; 33K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Beginner guide to video editing</p>
+        <p class="video-meta">CreatorHub &middot; 41K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Behind the scenes music shoot</p>
+        <p class="video-meta">ArtLens &middot; 27K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Q and A with top creators</p>
+        <p class="video-meta">YCV1 Talks &middot; 19K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Home workout for beginners</p>
+        <p class="video-meta">FitZone &middot; 76K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Photography basics for beginners</p>
+        <p class="video-meta">ShutterSpeed &middot; 62K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Setting up a home recording studio</p>
+        <p class="video-meta">SoundLab &middot; 45K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Weekend hiking trip vlog</p>
+        <p class="video-meta">TrailMix &middot; 58K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Chess opening strategies explained</p>
+        <p class="video-meta">CheckmateHub &middot; 31K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">DIY garden makeover</p>
+        <p class="video-meta">GreenThumb &middot; 24K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Street food tour highlights</p>
+        <p class="video-meta">FoodTrail &middot; 97K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Building a PC on a budget</p>
+        <p class="video-meta">TechBuilds &middot; 145K views</p>
+      </div>
+      <div class="video-card">
+        <div class="thumbnail"></div>
+        <p class="video-title">Learning guitar in 30 days</p>
+        <p class="video-meta">MusicMentor &middot; 39K views</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
